@@ -1,0 +1,45 @@
+---
+  title: "First Wasserstein Metric"
+---
+
+```{r global_options, include=FALSE}
+library(knitr)
+knitr::opts_chunk$set(echo = FALSE, message = FALSE, warning = FALSE)
+```
+
+# Data visualization using First Wasserstein distances
+
+We first asked ourselves how similar HLA are to one another, or how similar their empirical distributions of points lie in a multidimensional space. To encapsulate the similarity in a numeric metric, we use the first Wasserstein distance, also known as the earth mover's distance. It is well suited to our data, as it is sensitive both the center and spread of distributions, while also accomodating unevenly spaced ordinal features, such as our physiochemical properties. 
+
+The first Wasserstein distance between two discrete distributions $f$ and $g$ is formally given by 
+
+\[W_1(f,g) = \inf_{h \in H(X,Y|f,g)}  E_{(x,y) \sim h}[ |X - Y| ]\]
+
+where H is the set of all joint distributions of variables X and Y which have marginal densities $f$ and $g$ respectively. 
+
+An intuitive interpretation of this metric is the sum of the areas in between two cumulative density functions (cdfs). If $F(x)$ and $G(x)$ are the cdfs of $f(x)$ and $g(x)$ respectively, $W_1$ can be rewritten as 
+<!--- Vallender 1963--->
+
+\[W_1(f, g) =  \int_{-\infty}^{\infty} |F(x) - G(x)|dx\]
+
+Two compare any two peptidomes for a physiochemical property at a position, we calculate $W_1$ using this standardized table. Let A and B represent the peptidomes of two HLA. Let $A_{i,j}(x)$ and $B_{i,j}(x)$ represent the empirical distribution functions of A and B for position i and physicochemical property j. Then, the first Wasserstein metric for comparing the physicochemical property j at position i between HLA peptidomes A and B can be written as 
+
+\[W_{A, B, i, j} = \int_{-\infty}^{\infty}|A_{i,j}(x) - B_{i,j}(x)| dx \]
+
+To create a unified distance metric D between two peptidomes over all features, we calculate the Euclidean distance across all 27 physicochemical-proprerty-by-position features. Let I be the set of all positions (1 - 9) and J be the set of all physicochemical properties (molecular weight, hydrophobicity index, and isoelectric point). For HLA peptidomes A and B, the unified metric D can be written as
+
+\[D_{A, B} = \sqrt{\sum_{i \in I}^{} \sum_{j \in J}^{} (W_{A, B, i, j})^2 }\]
+
+Note that this metric only uses the physiochemical properties and not the binary amino acid identity features, to avoid redundant features for a metric that can be skewed by them. 
+
+Using this new metric D, we calculated all of the pairwise differences among our HLA peptidomes. These distances were then clustered by complete hierarchical clustering. The results for HLA-A peptidomes are shown as a heatmap and accompanying dendrograms below. 
+
+<br>
+<center>
+![Heatmap and accompanying dendrograms showing the unified Wasserstein metric across all HLA-A. ](images/hlaa.wass.png)
+</center>
+<br>
+
+Based on the dendrograms, we assigned four loose clusters, A-I, A-II, A-III, and A-IV, as annotated in the figure. We note the relations regarding these groups, such as A-I being the least like the rest of the clusters, and A-III being very tightly similar. 
+
+This distance matrix built off of the first Wasserstein metric is highly useful for understanding direct and tangible similarities between pairs of HLA peptidomes. However, to get a broader and more holistic intuition of the relations among HLA peptidomes, we can use dimension reduction with t-SNE (t-distributed Stochastic Neighbor Embedding) on our dataset to produce a complimentary plot. 

@@ -1,0 +1,19 @@
+---
+  title: "Data Details"
+---
+
+```{r global_options, include=FALSE}
+library(knitr)
+knitr::opts_chunk$set(echo = FALSE, message = FALSE, warning = FALSE)
+```
+
+# About the Peptidome Data
+
+Peptides are small amino acid sequences that make up proteins. In the case of the peptides that bind to HLA, most are nine amino acids long, or nonamers. We have a total of 65,731 nonamer sequences split among 63 different HLA alleles. Furthermore, HLA are encoded by several different genes, though their DNA sequences are very similar. In our dataset, we have 22 HLA-A, 34 HLA-B, 5 HLA-C, 1 HLA-E, and 1 HLA-F peptidomes. 
+
+
+# Converting Peptide Sequences into Numeric Features
+
+Since there are 20 different amino acids, one can make 20 different binary variables for each of the nine positions. This would translate each nonamer into $20 \times 9 = 180$ features. However, while this intrepretation is good at recording the idiosyncrasies of each specific amino acid, not all amino acids are equally distinct from one another - for example, glycine and alanine are both small hydrophobic molecules, whereas tyrosine is a hydrophilic molecule weighing more than alanine and alanine combined. So if an HLA can accept a glycine at position two of a nonamer, then it is much more likely to accept an alanine than a tyrosine at position two. 
+
+To get a better sense of the similarities among amino acids, it may be good to use the physiochemical properties of the amino acids themselves. Here we pick the three most salient properties: size, polarity, and charge. These will be measured by each amino acid's molecular weight, hydrophobicity index, and isoelectric point, respectively. This will create a second set of $3 \times 9 = 27$ features.

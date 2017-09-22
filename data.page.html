@@ -11,7 +11,7 @@
 
 
 
-<title></title>
+<title>Data Details</title>
 
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -205,25 +205,19 @@ $(document).ready(function () {
 
 
 
+<h1 class="title toc-ignore">Data Details</h1>
 
 </div>
 
 
-<!-- README.md is generated from README.Rmd. Please edit that file -->
-<div id="lapp" class="section level1">
-<h1>LAPP</h1>
-<p>Ligand Analysis with Physiochemical Properties (LAPP) is a small package I made to study HLA peptidomes. It has various functions for data conversion, visualization, and prediction.</p>
-<p>If you’re in my work with immunogenetics, check out my project page here: <a href="https://ash129.github.io/LAPP/index.html" class="uri">https://ash129.github.io/LAPP/index.html</a></p>
-<div id="installation" class="section level2">
-<h2>Installation</h2>
-<p>You can install LAPP in R with the following commands</p>
-<pre class="r"><code>library(devtools)
-devtools::install_github(&quot;ash129/LAPP&quot;)</code></pre>
+<div id="about-the-peptidome-data" class="section level1">
+<h1>About the Peptidome Data</h1>
+<p>Peptides are small amino acid sequences that make up proteins. In the case of the peptides that bind to HLA, most are nine amino acids long, or nonamers. We have a total of 65,731 nonamer sequences split among 63 different HLA alleles. Furthermore, HLA are encoded by several different genes, though their DNA sequences are very similar. In our dataset, we have 22 HLA-A, 34 HLA-B, 5 HLA-C, 1 HLA-E, and 1 HLA-F peptidomes.</p>
 </div>
-<div id="usage" class="section level2">
-<h2>Usage</h2>
-<p>The package vignette is still under construction. Check again soon!</p>
-</div>
+<div id="converting-peptide-sequences-into-numeric-features" class="section level1">
+<h1>Converting Peptide Sequences into Numeric Features</h1>
+<p>Since there are 20 different amino acids, one can make 20 different binary variables for each of the nine positions. This would translate each nonamer into <span class="math inline">\(20 \times 9 = 180\)</span> features. However, while this intrepretation is good at recording the idiosyncrasies of each specific amino acid, not all amino acids are equally distinct from one another - for example, glycine and alanine are both small hydrophobic molecules, whereas tyrosine is a hydrophilic molecule weighing more than alanine and alanine combined. So if an HLA can accept a glycine at position two of a nonamer, then it is much more likely to accept an alanine than a tyrosine at position two.</p>
+<p>To get a better sense of the similarities among amino acids, it may be good to use the physiochemical properties of the amino acids themselves. Here we pick the three most salient properties: size, polarity, and charge. These will be measured by each amino acid’s molecular weight, hydrophobicity index, and isoelectric point, respectively. This will create a second set of <span class="math inline">\(3 \times 9 = 27\)</span> features.</p>
 </div>
 
 
