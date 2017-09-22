@@ -11,9 +11,9 @@ navbar:
     - text: "Predictors"
       href: pred.page.html
     - text: "H1N1"
-      href: h1n1.html
+      href: h1n1.page.html
     - text: "Organ Transplantation"
-      href: ortr.html
+      href: ortr.page.html
 output_dir: "."
 output:
   html_document:

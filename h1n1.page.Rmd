@@ -1,5 +1,9 @@
 ---
   title: "Proof of Concept: Influenza A Virus, Subtype H1N1"
+  output:
+  html_document:
+    theme: simplex
+    fig_width: 1
 ---
 
 ```{r global_options, include=FALSE}
