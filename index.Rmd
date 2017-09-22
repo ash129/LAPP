@@ -5,6 +5,7 @@ output:
   html_document:
     theme: simplex
     fig_width: 1
+    fig_caption: yes
 ---
 
 ```{r global_options, include=FALSE}
@@ -18,7 +19,9 @@ Imagine you are sick with the flu. That means there are flu viruses growing in s
 
 The obvious difference between an infected cell and a healthy cell is that there are lots of viral or bacterial proteins being made in them. But it's probably not a great idea to physically probe into each of your cells for its contents, since that would be really destructive. Fortunately, almost all of the cells in our body are equipped with proteins called Human Leukocyte Antigens (HLA). HLAs function as "windows" to a cell. Shortly after being made, they pick up peptides, or broken down protein fragments, randomly floating in the cell's free space. Then, the HLA move out to the cell surface to display the peptide to other neighboring cells. In this way, other cells can sample the contents of a neighboring cell without disturbing it. 
 
-![](images/cartoon.cells.png)
+<center>
+![HLA continue to function in both healthy and infected cells to outwardly display a cell's inner contents](images/cartoon.cells.png)
+</center>
 
 Leukocytes, the cells of our immune system that eliminate infected cells, use the peptides presented by HLA to determine whether a cell is sick or healthy. During a leukocyte's development, it is trained to recognize the collection of peptides, or peptidome, of healthy cells and to not attack them. So, when a cell is infected with a virus and begins replicating inside it, the cell's HLA will randomly pick up some of the foreing viral protein peptides and present them to a leukocyte. The leukocyte will not recognize the peptide, so it will by default trigger the destruction of the infected cell. 
 
@@ -28,13 +31,17 @@ Additionally, this powerful and evolutionarily honed defense mechanism is a majo
 
 As an example consider two people, Andrew and Beatrice, who have slightly different HLA. Andrew's HLA recognize 3 different peptides. Beatrice has a slightly different looking HLA that can only pick up two different peptides. Andrew's and Beatrice's leukocytes therefore have been trained to recognize those three and two peptides respectively. 
 
-![](images/cartoon.organs.1.png)
+<center>
+![Andrew and Beatrice have two different HLA, upon which their leukocytes have been trained to not attack.](images/cartoon.organs.1.png)
+</center>
 
 If Andrew were to donate his liver to Beatrice, the HLA on the liver cells may present peptides that Beatrice's lymphocytes would not recognize. Therefore, Beatrice's leukocytes would attack the donated liver, causing transplant rejection. 
 
 On the other hand, consider the case where Beatrice donates her bone marrow to Andrew. While most organs don't contain a significant number of leukocytes, bone marrow contains stem cells which perpetually generate leukocytes. These newly transplanted leukocytes will sometimes not recognize the presented peptides of the cells of the host. Beatrice's leukocytes in the donated bone marrow can then attack Andrew, causing graft-versus-host disease (GvHD). 
 
-![](images/cartoon.organs.2.png)
+<center>
+![Andrew and Beatrice may suffer from their difference in HLA when donating organs to one another.](images/cartoon.organs.2.png)
+</center>
 
 Based on these two major roles that HLA play in our health, a predictor algorithm to assess whether a peptide could be picked up by an HLA would have many uses. An epidemiologist could use the protein sequences of a virus predicted to become an epidemic against specific HLAs to see what ethnic communities are more likely to be affected based on the frequencies of their HLA. A doctor could check all of the HLA peptidome from a heart donor against that of the recipient to gauge the likelihood of transplant rejection, as well as to determine the extent to which immunosuppresant drugs should be used to sufficiently suppress the host's immune system from attacking the heart. 
 
