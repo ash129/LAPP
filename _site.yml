@@ -17,6 +17,6 @@ navbar:
 output_dir: "."
 output:
   html_document:
-highlight: textmate
+    theme: cosmo
 #    include:
 #      after_body: _footer.html

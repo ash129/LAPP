@@ -3,8 +3,7 @@ title: "Ligand Analysis with Physicochemical Peptides"
 author:  "[Alex Han](https://github.com/ash129)"
 output:
   html_document:
-    theme: simplex
-    fig_width: 1
+    theme: cosmo
 ---
 
 ```{r global_options, include=FALSE}
@@ -28,7 +27,7 @@ From an evolutionary perspective, it is in the best interest of viruses and bact
 
 Additionally, this powerful and evolutionarily honed defense mechanism is a major cause for a problem in modern medicine: organ transplantation. Because of the immense variety of HLA, any two people are likely to have different HLA and HLA peptidomes. However, each person's leukocytes are trained on their own HLA peptidomes. When cells meet leukocytes trained on different HLA meet, they may end up attacking each other. 
 
-As an example consider two people, Andrew and Beatrice, who have slightly different HLA. Andrew's HLA recognize 3 different peptides. Beatrice has a slightly different looking HLA that can only pick up two different peptides. Andrew's and Beatrice's leukocytes therefore have been trained to recognize those three and two peptides respectively. 
+As an example consider two people, Andrew and Beatrice, who have slightly different HLA. Andrew's HLA recognizes 3 different peptides. Beatrice has a slightly different looking HLA that can only pick up two different peptides. Andrew's and Beatrice's leukocytes therefore have been trained to recognize those three and two peptides respectively. 
 
 <center>
 ![Andrew and Beatrice have two different HLA, upon which their leukocytes have been trained to not attack.](images/cartoon.organs.1.png)
