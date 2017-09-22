@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="pandoc" />
+
+
+<meta name="author" content="Alex Han" />
+
+
+<title>Introduction</title>
+
+<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/simplex.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/highlightjs-1.1/default.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-1.1/highlight.js"></script>
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+  pre:not([class]) {
+    background-color: white;
+  }
+</style>
+<script type="text/javascript">
+if (window.hljs && document.readyState && document.readyState === "complete") {
+   window.setTimeout(function() {
+      hljs.initHighlighting();
+   }, 0);
+}
+</script>
+
+
+
+<style type="text/css">
+h1 {
+  font-size: 34px;
+}
+h1.title {
+  font-size: 38px;
+}
+h2 {
+  font-size: 30px;
+}
+h3 {
+  font-size: 24px;
+}
+h4 {
+  font-size: 18px;
+}
+h5 {
+  font-size: 16px;
+}
+h6 {
+  font-size: 12px;
+}
+.table th:not([align]) {
+  text-align: left;
+}
+</style>
+
+
+</head>
+
+<body>
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+img {
+  max-width:100%;
+  height: auto;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+</style>
+
+
+<style type="text/css">
+/* padding for bootstrap navbar */
+body {
+  padding-top: 41px;
+  padding-bottom: 40px;
+}
+/* offset scroll position for anchor links (for fixed navbar)  */
+.section h1 {
+  padding-top: 46px;
+  margin-top: -46px;
+}
+
+.section h2 {
+  padding-top: 46px;
+  margin-top: -46px;
+}
+.section h3 {
+  padding-top: 46px;
+  margin-top: -46px;
+}
+.section h4 {
+  padding-top: 46px;
+  margin-top: -46px;
+}
+.section h5 {
+  padding-top: 46px;
+  margin-top: -46px;
+}
+.section h6 {
+  padding-top: 46px;
+  margin-top: -46px;
+}
+</style>
+
+<script>
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.parent().addClass('active');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+});
+</script>
+
+
+<div class="container-fluid main-container">
+
+<!-- tabsets -->
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+</script>
+
+<!-- code folding -->
+
+
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">HLA and peptides</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div class="fluid-row" id="header">
+
+
+
+<h1 class="title toc-ignore">Introduction</h1>
+<h4 class="author"><em><a href="https://github.com/ash129">Alex Han</a></em></h4>
+
+</div>
+
+
+<div id="human-leukocyte-antigens-and-their-peptides" class="section level1">
+<h1>Human Leukocyte Antigens and their Peptides</h1>
+<p>Imagine you are sick with the flu. That means there are flu viruses growing in some of your cells. How does your immune system know to eliminate these infected cells but not the healthy ones?</p>
+<p>The obvious difference between an infected cell and a healthy cell is that there are lots of viral or bacterial proteins being made in them. But it’s probably not a great idea to physically probe into each of your cells for its contents, since that would be really destructive. Fortunately, almost all of the cells in our body are equipped with proteins called Human Leukocyte Antigens (HLA). HLAs function as “windows” to a cell. Shortly after being made, they pick up peptides, or broken down protein fragments, randomly floating in the cell’s free space. Then, the HLA move out to the cell surface to display the peptide to other neighboring cells. In this way, other cells can sample the contents of a neighboring cell without disturbing it.</p>
+<div class="figure" style="text-align: center">
+<img src="C:/Users/Alex/Desktop/LAPP.short/figs/cartoon.cells.png" alt="The role of HLA in healthy and infected cells." width="894" />
+<p class="caption">
+The role of HLA in healthy and infected cells.
+</p>
+</div>
+<div class="figure">
+<img src="C:/Users/Alex/Desktop/LAPP.short/figs/cartoon.cells.png" />
+
+</div>
+<div class="figure">
+<img src="images/figs/cartoon.cells.png" />
+
+</div>
+<p>Leukocytes, the cells of our immune system that eliminate infected cells, use the peptides presented by HLA to determine whether a cell is sick or healthy. During a leukocyte’s development, it is trained to recognize the collection of peptides, or peptidome, of healthy cells and to not attack them. So, when a cell is infected with a virus and begins replicating inside it, the cell’s HLA will randomly pick up some of the foreing viral protein peptides and present them to a leukocyte. The leukocyte will not recognize the peptide, so it will by default trigger the destruction of the infected cell.</p>
+<p>From an evolutionary perspective, it is in the best interest of viruses and bacteria to make sure they don’t produce any proteins that include peptide fragments that can be captured by HLA. Similarly, it is in the best interest of humans to develop as many variations of HLA as possible to capture all potential viral and bacterial peptides. As a result, the genes that create HLA are considered to be the most varied segments of DNA in all of the human genome - there are over 10,000 alleles, or DNA sequence variations, for genes encoding HLA, each with different peptidomes that they can capture.</p>
+<p>Additionally, this powerful and evolutionarily honed defense mechanism is a major cause for a problem in modern medicine: organ transplantation. Because of the immense variety of HLA, any two people are likely to have different HLA and HLA peptidomes. However, each person’s leukocytes are trained on their own HLA peptidomes. When cells meet leukocytes trained on different HLA meet, they may end up attacking each other.</p>
+<p>As an example consider two people, Andrew and Beatrice, who have slightly different HLA. Andrew’s HLA recognize 3 different peptides. Beatrice has a slightly different looking HLA that can only pick up two different peptides. Andrew’s and Beatrice’s leukocytes therefore have been trained to recognize those three and two peptides respectively.</p>
+<div class="figure" style="text-align: center">
+<img src="C:/Users/Alex/Desktop/LAPP.short/figs/cartoon.organs.1.png" alt="Andrew and Beatrice have two different HLA, upon which their leukocytes have been trained to not attack. " width="558" />
+<p class="caption">
+Andrew and Beatrice have two different HLA, upon which their leukocytes have been trained to not attack.
+</p>
+</div>
+<p>If Andrew were to donate his liver to Beatrice, the HLA on the liver cells may present peptides that Beatrice’s lymphocytes would not recognize. Therefore, Beatrice’s leukocytes would attack the donated liver, causing transplant rejection.</p>
+<p>On the other hand, consider the case where Beatrice donates her bone marrow to Andrew. While most organs don’t contain a significant number of leukocytes, bone marrow contains stem cells which perpetually generate leukocytes. These newly transplanted leukocytes will sometimes not recognize the presented peptides of the cells of the host. Beatrice’s leukocytes in the donated bone marrow can then attack Andrew, causing graft-versus-host disease (GvHD).</p>
+<div class="figure" style="text-align: center">
+<img src="C:/Users/Alex/Desktop/LAPP.short/figs/cartoon.organs.2.png" alt="Andrew and Beatrice may suffer from their difference in HLA when donating organs to one another. " width="608" />
+<p class="caption">
+Andrew and Beatrice may suffer from their difference in HLA when donating organs to one another.
+</p>
+</div>
+<p>Based on these two major roles that HLA play in our health, a predictor algorithm to assess whether a peptide could be picked up by an HLA would have many uses. An epidemiologist could use the protein sequences of a virus predicted to become an epidemic against specific HLAs to see what ethnic communities are more likely to be affected based on the frequencies of their HLA. A doctor could check all of the HLA peptidome from a heart donor against that of the recipient to gauge the likelihood of transplant rejection, as well as to determine the extent to which immunosuppresant drugs should be used to sufficiently suppress the host’s immune system from attacking the heart.</p>
+<p>Recent advancements in mass spectrometry have allowed us to sequence small peptide fragments, such as those bound to HLA. Experiments involving engineered cell lines with only one type of HLA present now allow us to sample the peptide binding preferences of any specific HLA. These peptidome datasets can help us prepare for epidemics caused by infectious diseases, and better match compatible organ donors and recipients.</p>
+</div>
+
+
+
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>

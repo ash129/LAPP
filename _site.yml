@@ -1,0 +1,20 @@
+name: "R Markdown Websites Tutorial"
+navbar:
+  title: "HLA and peptides"
+# left:
+#   - text: "Wasserstein metrics"
+# href: first_observations.html
+# - text: "t-SNE"
+# href: basic_workflow.html
+# - text: "Predictors"
+# href: getting_sophisticated.html
+# - text: "H1N1"
+# href: your_turn.html
+# - text: "Organ Transplantation"
+# href: your_turn.html
+output_dir: "."
+output:
+  html_document:
+highlight: textmate
+#    include:
+#      after_body: _footer.html
