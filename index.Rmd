@@ -11,7 +11,7 @@ library(knitr)
 knitr::opts_chunk$set(echo = FALSE, message = FALSE, warning = FALSE)
 ```
 
-# Human Leukocyte Antigens
+## Human Leukocyte Antigens and our Immune Systems
 
 Imagine you are sick with the flu. That means there are flu viruses growing in some of your cells. How does your immune system know to eliminate these infected cells but not the healthy ones? 
 
@@ -24,6 +24,8 @@ The obvious difference between an infected cell and a healthy cell is that there
 Leukocytes, the cells of our immune system that eliminate infected cells, use the peptides presented by HLA to determine whether a cell is sick or healthy. During a leukocyte's development, it is trained to recognize the collection of peptides, or peptidome, of healthy cells and to not attack them. So, when a cell is infected with a virus and begins replicating inside it, the cell's HLA will randomly pick up some of the foreing viral protein peptides and present them to a leukocyte. The leukocyte will not recognize the peptide, so it will by default trigger the destruction of the infected cell. 
 
 From an evolutionary perspective, it is in the best interest of viruses and bacteria to make sure they don't produce any proteins that include peptide fragments that can be captured by HLA. Similarly, it is in the best interest of humans to develop as many variations of HLA as possible to capture all potential viral and bacterial peptides. As a result, the genes that create HLA are considered to be the most varied segments of DNA in all of the human genome - there are over 10,000 alleles, or DNA sequence variations, for genes encoding HLA, each with different peptidomes that they can capture. 
+
+## Human Leukocyte Antigens and Organ Transplantation
 
 Additionally, this powerful and evolutionarily honed defense mechanism is a major cause for a problem in modern medicine: organ transplantation. Because of the immense variety of HLA, any two people are likely to have different HLA and HLA peptidomes. However, each person's leukocytes are trained on their own HLA peptidomes. When cells meet leukocytes trained on different HLA meet, they may end up attacking each other. 
 

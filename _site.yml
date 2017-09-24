@@ -1,6 +1,6 @@
 name: "R Markdown Websites Tutorial"
 navbar:
-  title: "HLA and peptides"
+  title: "LAPP"
   left:
     - text: "Data details"
       href: data.page.html

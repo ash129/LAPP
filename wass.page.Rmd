@@ -10,9 +10,9 @@ library(knitr)
 knitr::opts_chunk$set(echo = FALSE, message = FALSE, warning = FALSE)
 ```
 
-# Data visualization using First Wasserstein distances
+## The Case for the First Wasserstein Metric
 
-We first asked ourselves how similar HLA are to one another, or how similar their empirical distributions of points lie in a multidimensional space. To encapsulate the similarity in a numeric metric, we use the first Wasserstein distance, also known as the earth mover's distance. It is well suited to our data, as it is sensitive both the center and spread of distributions, while also accomodating unevenly spaced ordinal features, such as our physiochemical properties. 
+We first asked ourselves how similar HLA are to one another, or how similar their empirical distributions of points lie in a multidimensional space. To encapsulate the similarity in a numeric metric, we use the first Wasserstein distance, also known as the earth mover's distance. 
 
 The first Wasserstein distance between two discrete distributions $f$ and $g$ is formally given by 
 
@@ -25,6 +25,19 @@ An intuitive interpretation of this metric is the sum of the areas in between tw
 
 \[W_1(f, g) =  \int_{-\infty}^{\infty} |F(x) - G(x)|dx\]
 
+Though it is not as widely known, this is a unique metric that is well suited to our data, as it is sensitive to both the center and spread of distributions, while also accomodating unevenly spaced ordinal features, such as our physiochemical properties. We compare the first Wasserstein metric along with Cohen's D (effect size analog of the two sample t-statistic), Mann-Whitney-Wilcoxon r (effect size analog of the MWW U statistic), and the Anderson-Darling criterion in the following comparisons of mock distributions. 
+
+<center>
+![Andrew and Beatrice have two different HLA, upon which their leukocytes have been trained to not attack.](images/wass.ex.png)
+</center>
+
+In the above distributions, B is just A transposed by +2. C is A but with half the standard deviation. D is a bimodal distribution made by tranposing half of A by +2 and the other half by -2. E2 and F2 are identical to E and F respectively, except the values at -3 are now shifted over to 1. 
+
+Cohen's D and MWW r both report 0 for comparisons of A:C and A:D, because both of these effect sizes, like their statistical test counterparts, are only sensitive to changes in mean, not spread. However, Cohen's D is able to recognize the change in difference of means between E:F and E2:F2 whereas MWW r cannot, because MWW r is a rank based metric. The Anderson-Darling criterion is sensitive to changes in spread as shown by distinct non-zero values for A:C and A:D, but it has the same flas as MWW r when it comes to comparing E:F and E2:F2 - the pairs of distributions are identical in rank, and so it cannot discern a difference. The Wasserstein metric, on the other hand, gives unique values for each of the comparisons in the table. 
+
+## Adapting the First Wasserstein Metric for Peptide Data
+
+
 Two compare any two peptidomes for a physiochemical property at a position, we calculate $W_1$ using this standardized table. Let A and B represent the peptidomes of two HLA. Let $A_{i,j}(x)$ and $B_{i,j}(x)$ represent the empirical distribution functions of A and B for position i and physicochemical property j. Then, the first Wasserstein metric for comparing the physicochemical property j at position i between HLA peptidomes A and B can be written as 
 
 \[W_{A, B, i, j} = \int_{-\infty}^{\infty}|A_{i,j}(x) - B_{i,j}(x)| dx \]
@@ -34,6 +47,8 @@ To create a unified distance metric D between two peptidomes over all features, 
 \[D_{A, B} = \sqrt{\sum_{i \in I}^{} \sum_{j \in J}^{} (W_{A, B, i, j})^2 }\]
 
 Note that this metric only uses the physiochemical properties and not the binary amino acid identity features, to avoid redundant features for a metric that can be skewed by them. 
+
+## Data Visualization Using the First Wasserstein Metric
 
 Using this new metric D, we calculated all of the pairwise differences among our HLA peptidomes. These distances were then clustered by complete hierarchical clustering. The results for HLA-A peptidomes are shown as a heatmap and accompanying dendrograms below. 
 

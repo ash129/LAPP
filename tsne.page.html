@@ -171,7 +171,7 @@ $(document).ready(function () {
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="index.html">HLA and peptides</a>
+      <a class="navbar-brand" href="index.html">LAPP</a>
     </div>
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
@@ -210,7 +210,22 @@ $(document).ready(function () {
 </div>
 
 
-<p>Coming soon!</p>
+<div id="a-case-for-t-sne" class="section level2">
+<h2>A Case for t-SNE</h2>
+<p>t-distribution stochastic neighbor embedding (t-SNE) is a dimension reduction method that relies on an objective function. It can be considered an alternative to principal components analysis (PCA) in that they can both create two-dimensional plots that provide an intuitive understanding of the feature space in a dataset. However, there are advantages and disadvantages to the two methods.</p>
+<p>t-SNE can tease out nonlinear relations of features, unlike PCA. It also encompasses all information from all eigenvectors onto a lesser dimensional plot, whereas PCA must choose among the most impactful eigenvectors and disregard the others. Because the feature preferences are nonlinear (e.g. the HLA’s peptide binding cleft requires an amino acid that is neither too small to be loose nor too large to not fit) and because PCA does not yield a dramatic shoulder in plots of total variance explained by its eigenvectors for our datasets, t-SNE was chosen for this analysis.</p>
+<p>However, it is important to be aware of the disadvantages to using t-SNE. t-SNE relies on minimizing an objective function such that iterations of the t-SNE using the same data and parameters will create (slightly) different results each time. Unlike PCA, t-SNE does not create loading matrix, and so plotting new points using the same transformations as a previously run t-SNE is unfeasible. Distances are arbitrary in a t-SNE plot, and so if the distance between two points A and B is half that of A and a point C, it does not nessarily follow that A and B are more similar than A and C.</p>
+</div>
+<div id="data-visualization-using-t-sne" class="section level2">
+<h2>Data Visualization Using t-SNE</h2>
+<p>The plots below are the results for t-SNE on the full dataset of 207 features for just HLA-A peptidomes. The plot on the left are points plotted with the colors as assigned from the Wasserstein heatmaps. The plot on the right is the same data, but smoothed into densities with two-dimensional kernel density estimation.</p>
+<center>
+<img src="images/hlaa.tsne.png" />
+</center>
+<p>The peptides for the individual HLA peptidomes are also shown in the following animated plots.</p>
+<p><img src="images/hlaa.a1.gif" width="25%" /><img src="images/hlaa.a2.gif" width="25%" /><img src="images/hlaa.a3.gif" width="25%" /><img src="images/hlaa.a4.gif" width="25%" /></p>
+<p>These t-SNE plots give a good sense of the separability of the clusters. As we saw with the previous Wasserstein metric heatmaps, cluster A-I is the most unique, as it has the widest margin between it and the other clusters. The individual plots also corroborate that cluster A-II is a loose clustering, relative to the tightly knit A-III cluster. While t-SNE plots give an organic intuition about what the data looks like, for more concrete pairwise metrics among HLA peptidomes, the Wasserstein heatmaps are more useful.</p>
+</div>
 
 
 

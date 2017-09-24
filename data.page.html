@@ -171,7 +171,7 @@ $(document).ready(function () {
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="index.html">HLA and peptides</a>
+      <a class="navbar-brand" href="index.html">LAPP</a>
     </div>
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
@@ -210,13 +210,14 @@ $(document).ready(function () {
 </div>
 
 
-<div id="about-the-peptidome-data" class="section level1">
-<h1>About the Peptidome Data</h1>
-<p>Peptides are small amino acid sequences that make up proteins. In the case of the peptides that bind to HLA, most are nine amino acids long, or nonamers. We have a total of 65,731 nonamer sequences split among 63 different HLA alleles. Furthermore, HLA are encoded by several different genes, though their DNA sequences are very similar. In our dataset, we have 22 HLA-A, 34 HLA-B, 5 HLA-C, 1 HLA-E, and 1 HLA-F peptidomes.</p>
+<div id="about-the-peptidome-data" class="section level2">
+<h2>About the Peptidome Data</h2>
+<p>Peptides are small amino acid sequences that make up proteins. In the case of the peptides that bind to HLA, most are nine amino acids long, or nonamers. The dataset for this project has a total of 65,731 nonamer sequences split among 63 different HLA alleles, all sourced from the <a href="http://www.iedb.org/">Immune Epitope Database</a>.</p>
+<p>Furthermore, not all of the HLA alleles come from the same genetic locus, or gene. In our dataset, we have peptidomes from we have five different HLA genes represented: HLA-A, HLA-B, HLA-C, HLA-E, and HLA-F. Our 63 peptidomes are split among 22 HLA-A, 34 HLA-B, 5 HLA-C, 1 HLA-E, and 1 HLA-F alleles.</p>
 </div>
-<div id="converting-peptide-sequences-into-numeric-features" class="section level1">
-<h1>Converting Peptide Sequences into Numeric Features</h1>
-<p>Since there are 20 different amino acids, one can make 20 different binary variables for each of the nine positions. This would translate each nonamer into <span class="math inline">\(20 \times 9 = 180\)</span> features. However, while this intrepretation is good at recording the idiosyncrasies of each specific amino acid, not all amino acids are equally distinct from one another - for example, glycine and alanine are both small hydrophobic molecules, whereas tyrosine is a hydrophilic molecule weighing more than alanine and alanine combined. So if an HLA can accept a glycine at position two of a nonamer, then it is much more likely to accept an alanine than a tyrosine at position two.</p>
+<div id="converting-peptide-sequences-into-numeric-features" class="section level2">
+<h2>Converting Peptide Sequences into Numeric Features</h2>
+<p>Since there are 20 different amino acids, one can make 20 different binary variables for each of the nine positions. This would translate each nonamer into <span class="math inline">\(20 \times 9 = 180\)</span> features. However, while this intrepretation is good at recording the idiosyncrasies of each specific amino acid, not all amino acids are equally distinct from one another - for example, glycine and alanine are both small hydrophobic molecules, whereas tyrosine is a hydrophilic molecule weighing more than glycine and alanine combined. So if an HLA can accept a glycine at position two of a nonamer, then it is much more likely to accept an alanine than a tyrosine at position two.</p>
 <p>To get a better sense of the similarities among amino acids, it may be good to use the physiochemical properties of the amino acids themselves. Here we pick the three most salient properties: size, polarity, and charge. These will be measured by each amino acid’s molecular weight, hydrophobicity index, and isoelectric point, respectively. This will create a second set of <span class="math inline">\(3 \times 9 = 27\)</span> features.</p>
 </div>
 
